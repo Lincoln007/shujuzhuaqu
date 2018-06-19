@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YIyilanDatabase.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="imagedetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="images" Type="text" />
+          <Property Name="details" Type="text" />
+          <Property Name="videourl" Type="text" />
+        </EntityType>
+        <EntityType Name="productparams">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="paramlabel" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="paramlabel" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="paramvalue" Type="nchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="title" Type="nchar" MaxLength="128" />
+          <Property Name="description" Type="nchar" MaxLength="128" />
+          <Property Name="params" Type="text" />
+          <Property Name="current_price_min" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="current_price_max" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="original_price_min" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="original_price_max" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="month_sales_count" Type="int" />
+          <Property Name="stock" Type="int" />
+          <Property Name="skunumber" Type="int" />
+          <Property Name="shipping_address" Type="nchar" MaxLength="64" />
+          <Property Name="shop_id" Type="nchar" MaxLength="64" />
+          <Property Name="category_id" Type="nchar" MaxLength="64" />
+          <Property Name="keyword" Type="nchar" MaxLength="64" />
+          <Property Name="comments_count" Type="int" />
+          <Property Name="stores_count" Type="int" />
+          <Property Name="score" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="uri" Type="nchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="productskus">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="skname" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="skname" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="imageurl" Type="nchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="shops">
+          <Key>
+            <PropertyRef Name="shop_id" />
+          </Key>
+          <Property Name="shop_id" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="shop_name" Type="nchar" MaxLength="64" />
+        </EntityType>
+        <EntityContainer Name="YIyilanDatabaseStoreContainer">
+          <EntitySet Name="imagedetail" EntityType="Self.imagedetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productparams" EntityType="Self.productparams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productskus" EntityType="Self.productskus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shops" EntityType="Self.shops" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="YIyilanDatabase" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="YIyilanDatabaseContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="imagedetail" EntityType="YIyilanDatabase.imagedetail" />
+          <EntitySet Name="productparams" EntityType="YIyilanDatabase.productparams" />
+          <EntitySet Name="products" EntityType="YIyilanDatabase.products" />
+          <EntitySet Name="productskus" EntityType="YIyilanDatabase.productskus" />
+          <EntitySet Name="shops" EntityType="YIyilanDatabase.shops" />
+        </EntityContainer>
+        <EntityType Name="imagedetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="images" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="videourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="productparams">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="paramlabel" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="paramlabel" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="paramvalue" Type="String" MaxLength="1024" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="params" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="month_sales_count" Type="Int32" />
+          <Property Name="stock" Type="Int32" />
+          <Property Name="skunumber" Type="Int32" />
+          <Property Name="shipping_address" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="shop_id" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="category_id" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="comments_count" Type="Int32" />
+          <Property Name="keyword" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="current_price_min" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="current_price_max" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="original_price_min" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="original_price_max" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="stores_count" Type="Int32" />
+          <Property Name="score" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="uri" Type="String" MaxLength="256" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="productskus">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="skname" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="skname" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="imageurl" Type="String" MaxLength="1024" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="shops">
+          <Key>
+            <PropertyRef Name="shop_id" />
+          </Key>
+          <Property Name="shop_id" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="shop_name" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="YIyilanDatabase" />
+        <Alias Key="Target" Value="YIyilanDatabase.Store" />
+        <EntityContainerMapping CdmEntityContainer="YIyilanDatabaseContainer" StorageEntityContainer="YIyilanDatabaseStoreContainer">
+          <EntitySetMapping Name="imagedetail">
+            <EntityTypeMapping TypeName="YIyilanDatabase.imagedetail">
+              <MappingFragment StoreEntitySet="imagedetail">
+                <ScalarProperty Name="videourl" ColumnName="videourl" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="images" ColumnName="images" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productparams">
+            <EntityTypeMapping TypeName="YIyilanDatabase.productparams">
+              <MappingFragment StoreEntitySet="productparams">
+                <ScalarProperty Name="paramvalue" ColumnName="paramvalue" />
+                <ScalarProperty Name="paramlabel" ColumnName="paramlabel" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="YIyilanDatabase.products">
+              <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="uri" ColumnName="uri" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="stores_count" ColumnName="stores_count" />
+                <ScalarProperty Name="original_price_max" ColumnName="original_price_max" />
+                <ScalarProperty Name="original_price_min" ColumnName="original_price_min" />
+                <ScalarProperty Name="current_price_max" ColumnName="current_price_max" />
+                <ScalarProperty Name="current_price_min" ColumnName="current_price_min" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="comments_count" ColumnName="comments_count" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+                <ScalarProperty Name="shipping_address" ColumnName="shipping_address" />
+                <ScalarProperty Name="skunumber" ColumnName="skunumber" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="month_sales_count" ColumnName="month_sales_count" />
+                <ScalarProperty Name="params" ColumnName="params" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productskus">
+            <EntityTypeMapping TypeName="YIyilanDatabase.productskus">
+              <MappingFragment StoreEntitySet="productskus">
+                <ScalarProperty Name="imageurl" ColumnName="imageurl" />
+                <ScalarProperty Name="skname" ColumnName="skname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shops">
+            <EntityTypeMapping TypeName="YIyilanDatabase.shops">
+              <MappingFragment StoreEntitySet="shops">
+                <ScalarProperty Name="shop_name" ColumnName="shop_name" />
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,42 @@
+﻿[
+  {
+    "label": "地毯尺寸",
+    "values": [
+      {
+        "desc": "145&times;200CM(无胶地毯）",
+        "image": "",
+        "number": "21433:74642167"
+      }
+    ]
+  },
+  {
+    "label": "颜色分类",
+    "values": [
+      {
+        "desc": "GL- 梦想兔",
+        "image": "https://img.alicdn.com/imgextra/i1/1704559058/TB2bzOQXTzGK1JjSspjXXcHWXXa_!!1704559058.jpg",
+        "number": "1627207:3232483"
+      },
+      {
+        "desc": "GL- 波点皇冠",
+        "image": "https://img.alicdn.com/imgextra/i4/1704559058/TB2tOBHahHBK1JjSZFyXXcmcFXa_!!1704559058.jpg",
+        "number": "1627207:3232484"
+      },
+      {
+        "desc": "GL- 彩色水滴",
+        "image": "https://img.alicdn.com/imgextra/i4/1704559058/TB2WliAXaFML1JjSZFhXXbqlXXa_!!1704559058.jpg",
+        "number": "1627207:3232481"
+      },
+      {
+        "desc": "GL- 丘比特",
+        "image": "https://img.alicdn.com/imgextra/i1/1704559058/TB2y7VCadHEK1JjSZFGXXcjVFXa_!!1704559058.jpg",
+        "number": "1627207:90554"
+      },
+      {
+        "desc": "GL- 时尚唇情",
+        "image": "https://img.alicdn.com/imgextra/i2/1704559058/TB2s3dxagYDK1JjSZPfXXcY.pXa_!!1704559058.jpg",
+        "number": "1627207:28332"
+      }
+    ]
+  }
+]
