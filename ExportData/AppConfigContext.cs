@@ -11,7 +11,6 @@ namespace ExportData
     {
         private AppConfigContext()
         {
-            
         }
         private static AppConfigContext instance = new AppConfigContext();
 
@@ -32,7 +31,20 @@ namespace ExportData
             }
             set
             {
-                ConfigurationManager.AppSettings["workingpath"] = value;
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+                if (settings["workingpath"] == null)
+                {
+                    settings.Add("workingpath", value);
+                }
+                else
+                {
+                    settings["workingpath"].Value = value;
+                }
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+
+                //ConfigurationManager.AppSettings["workingpath"] = value;
             }
         }
     }

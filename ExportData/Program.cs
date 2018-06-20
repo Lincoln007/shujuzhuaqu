@@ -17,8 +17,6 @@ namespace ExportData
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            string file = System.Windows.Forms.Application.ExecutablePath;
-            System.Configuration.Configuration config = ConfigurationManager.OpenExeConfiguration(file);
             Application.Run(new Form1());
         }
     }
