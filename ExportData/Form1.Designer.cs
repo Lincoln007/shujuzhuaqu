@@ -44,15 +44,41 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.yiyilandbDataSet1 = new ExportData.yiyilandbDataSet();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.yiyilandbDataSet = new ExportData.yiyilandbDataSet();
+            this.label2 = new System.Windows.Forms.Label();
+            this.productsTableAdapter = new ExportData.yiyilandbDataSetTableAdapters.productsTableAdapter();
+            this.colcheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paramsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currentpriceminDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currentpricemaxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.originalpriceminDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.originalpricemaxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthsalescountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.skunumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shippingaddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shopidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.keywordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentscountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storescountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scoreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uriDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colstatus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,38 +99,15 @@
             this.storescountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uriDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.yiyilandbDataSet = new ExportData.yiyilandbDataSet();
-            this.label2 = new System.Windows.Forms.Label();
-            this.productsTableAdapter = new ExportData.yiyilandbDataSetTableAdapters.productsTableAdapter();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paramsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currentpriceminDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currentpricemaxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.originalpriceminDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.originalpricemaxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monthsalescountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.skunumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shippingaddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shopidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.keywordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentscountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storescountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scoreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uriDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yiyilandbDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -119,7 +122,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(814, 34);
+            this.panel1.Size = new System.Drawing.Size(1086, 34);
             this.panel1.TabIndex = 0;
             // 
             // linkLabel1
@@ -152,7 +155,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 37);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.panel2.Size = new System.Drawing.Size(218, 462);
+            this.panel2.Size = new System.Drawing.Size(218, 626);
             this.panel2.TabIndex = 1;
             // 
             // splitter2
@@ -172,13 +175,13 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 184);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(212, 275);
+            this.panel3.Size = new System.Drawing.Size(212, 439);
             this.panel3.TabIndex = 3;
             // 
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(134, 243);
+            this.btnSearch.Location = new System.Drawing.Point(134, 407);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 5;
@@ -194,7 +197,7 @@
             this.textBox1.Location = new System.Drawing.Point(2, 47);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 190);
+            this.textBox1.Size = new System.Drawing.Size(207, 354);
             this.textBox1.TabIndex = 4;
             // 
             // label1
@@ -242,7 +245,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(221, 37);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 462);
+            this.splitter1.Size = new System.Drawing.Size(3, 626);
             this.splitter1.TabIndex = 2;
             this.splitter1.TabStop = false;
             // 
@@ -255,7 +258,7 @@
             this.panel5.Location = new System.Drawing.Point(224, 37);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(3);
-            this.panel5.Size = new System.Drawing.Size(593, 462);
+            this.panel5.Size = new System.Drawing.Size(865, 626);
             this.panel5.TabIndex = 3;
             // 
             // panel7
@@ -263,21 +266,11 @@
             this.panel7.Controls.Add(this.dataGridView2);
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(275, 3);
+            this.panel7.Location = new System.Drawing.Point(441, 3);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(3);
-            this.panel7.Size = new System.Drawing.Size(315, 456);
+            this.panel7.Size = new System.Drawing.Size(421, 620);
             this.panel7.TabIndex = 2;
-            // 
-            // productsBindingSource1
-            // 
-            this.productsBindingSource1.DataMember = "products";
-            this.productsBindingSource1.DataSource = this.yiyilandbDataSet1;
-            // 
-            // yiyilandbDataSet1
-            // 
-            this.yiyilandbDataSet1.DataSetName = "yiyilandbDataSet";
-            this.yiyilandbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridView2
             // 
@@ -287,6 +280,7 @@
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colcheck,
             this.idDataGridViewTextBoxColumn1,
             this.titleDataGridViewTextBoxColumn1,
             this.descriptionDataGridViewTextBoxColumn1,
@@ -310,32 +304,66 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 32);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(309, 421);
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(415, 585);
             this.dataGridView2.TabIndex = 8;
+            // 
+            // productsBindingSource1
+            // 
+            this.productsBindingSource1.DataMember = "products";
+            this.productsBindingSource1.DataSource = this.yiyilandbDataSet1;
+            // 
+            // yiyilandbDataSet1
+            // 
+            this.yiyilandbDataSet1.DataSetName = "yiyilandbDataSet";
+            this.yiyilandbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.button1);
+            this.panel8.Controls.Add(this.btnRemove);
             this.panel8.Controls.Add(this.button3);
             this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(309, 29);
+            this.panel8.Size = new System.Drawing.Size(415, 29);
             this.panel8.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(222, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "全选";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.Location = new System.Drawing.Point(282, 3);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(54, 23);
+            this.btnRemove.TabIndex = 0;
+            this.btnRemove.Text = "排除";
+            this.btnRemove.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(126, 3);
+            this.button3.Location = new System.Drawing.Point(342, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(178, 23);
+            this.button3.Size = new System.Drawing.Size(68, 23);
             this.button3.TabIndex = 0;
-            this.button3.Text = "下载所有商品图片到工作空间";
+            this.button3.Text = "下载选中";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label3
             // 
@@ -348,9 +376,9 @@
             // 
             // splitter3
             // 
-            this.splitter3.Location = new System.Drawing.Point(272, 3);
+            this.splitter3.Location = new System.Drawing.Point(438, 3);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(3, 456);
+            this.splitter3.Size = new System.Drawing.Size(3, 620);
             this.splitter3.TabIndex = 1;
             this.splitter3.TabStop = false;
             // 
@@ -362,7 +390,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(3);
-            this.panel6.Size = new System.Drawing.Size(269, 456);
+            this.panel6.Size = new System.Drawing.Size(435, 620);
             this.panel6.TabIndex = 0;
             // 
             // dataGridView1
@@ -398,9 +426,173 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(263, 421);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(429, 585);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "products";
+            this.productsBindingSource.DataSource = this.yiyilandbDataSet;
+            // 
+            // yiyilandbDataSet
+            // 
+            this.yiyilandbDataSet.DataSetName = "yiyilandbDataSet";
+            this.yiyilandbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label2
+            // 
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(429, 29);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "查询到的商品";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // productsTableAdapter
+            // 
+            this.productsTableAdapter.ClearBeforeFill = true;
+            // 
+            // colcheck
+            // 
+            this.colcheck.HeaderText = "";
+            this.colcheck.Name = "colcheck";
+            this.colcheck.Width = 25;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // titleDataGridViewTextBoxColumn1
+            // 
+            this.titleDataGridViewTextBoxColumn1.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn1.HeaderText = "title";
+            this.titleDataGridViewTextBoxColumn1.Name = "titleDataGridViewTextBoxColumn1";
+            this.titleDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn1
+            // 
+            this.descriptionDataGridViewTextBoxColumn1.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn1.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
+            this.descriptionDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // paramsDataGridViewTextBoxColumn1
+            // 
+            this.paramsDataGridViewTextBoxColumn1.DataPropertyName = "params";
+            this.paramsDataGridViewTextBoxColumn1.HeaderText = "params";
+            this.paramsDataGridViewTextBoxColumn1.Name = "paramsDataGridViewTextBoxColumn1";
+            this.paramsDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // currentpriceminDataGridViewTextBoxColumn1
+            // 
+            this.currentpriceminDataGridViewTextBoxColumn1.DataPropertyName = "current_price_min";
+            this.currentpriceminDataGridViewTextBoxColumn1.HeaderText = "current_price_min";
+            this.currentpriceminDataGridViewTextBoxColumn1.Name = "currentpriceminDataGridViewTextBoxColumn1";
+            this.currentpriceminDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // currentpricemaxDataGridViewTextBoxColumn1
+            // 
+            this.currentpricemaxDataGridViewTextBoxColumn1.DataPropertyName = "current_price_max";
+            this.currentpricemaxDataGridViewTextBoxColumn1.HeaderText = "current_price_max";
+            this.currentpricemaxDataGridViewTextBoxColumn1.Name = "currentpricemaxDataGridViewTextBoxColumn1";
+            this.currentpricemaxDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // originalpriceminDataGridViewTextBoxColumn1
+            // 
+            this.originalpriceminDataGridViewTextBoxColumn1.DataPropertyName = "original_price_min";
+            this.originalpriceminDataGridViewTextBoxColumn1.HeaderText = "original_price_min";
+            this.originalpriceminDataGridViewTextBoxColumn1.Name = "originalpriceminDataGridViewTextBoxColumn1";
+            this.originalpriceminDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // originalpricemaxDataGridViewTextBoxColumn1
+            // 
+            this.originalpricemaxDataGridViewTextBoxColumn1.DataPropertyName = "original_price_max";
+            this.originalpricemaxDataGridViewTextBoxColumn1.HeaderText = "original_price_max";
+            this.originalpricemaxDataGridViewTextBoxColumn1.Name = "originalpricemaxDataGridViewTextBoxColumn1";
+            // 
+            // monthsalescountDataGridViewTextBoxColumn1
+            // 
+            this.monthsalescountDataGridViewTextBoxColumn1.DataPropertyName = "month_sales_count";
+            this.monthsalescountDataGridViewTextBoxColumn1.HeaderText = "month_sales_count";
+            this.monthsalescountDataGridViewTextBoxColumn1.Name = "monthsalescountDataGridViewTextBoxColumn1";
+            this.monthsalescountDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // stockDataGridViewTextBoxColumn1
+            // 
+            this.stockDataGridViewTextBoxColumn1.DataPropertyName = "stock";
+            this.stockDataGridViewTextBoxColumn1.HeaderText = "stock";
+            this.stockDataGridViewTextBoxColumn1.Name = "stockDataGridViewTextBoxColumn1";
+            this.stockDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // skunumberDataGridViewTextBoxColumn1
+            // 
+            this.skunumberDataGridViewTextBoxColumn1.DataPropertyName = "skunumber";
+            this.skunumberDataGridViewTextBoxColumn1.HeaderText = "skunumber";
+            this.skunumberDataGridViewTextBoxColumn1.Name = "skunumberDataGridViewTextBoxColumn1";
+            this.skunumberDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // shippingaddressDataGridViewTextBoxColumn1
+            // 
+            this.shippingaddressDataGridViewTextBoxColumn1.DataPropertyName = "shipping_address";
+            this.shippingaddressDataGridViewTextBoxColumn1.HeaderText = "shipping_address";
+            this.shippingaddressDataGridViewTextBoxColumn1.Name = "shippingaddressDataGridViewTextBoxColumn1";
+            this.shippingaddressDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // shopidDataGridViewTextBoxColumn1
+            // 
+            this.shopidDataGridViewTextBoxColumn1.DataPropertyName = "shop_id";
+            this.shopidDataGridViewTextBoxColumn1.HeaderText = "shop_id";
+            this.shopidDataGridViewTextBoxColumn1.Name = "shopidDataGridViewTextBoxColumn1";
+            this.shopidDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // categoryidDataGridViewTextBoxColumn1
+            // 
+            this.categoryidDataGridViewTextBoxColumn1.DataPropertyName = "category_id";
+            this.categoryidDataGridViewTextBoxColumn1.HeaderText = "category_id";
+            this.categoryidDataGridViewTextBoxColumn1.Name = "categoryidDataGridViewTextBoxColumn1";
+            this.categoryidDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // keywordDataGridViewTextBoxColumn1
+            // 
+            this.keywordDataGridViewTextBoxColumn1.DataPropertyName = "keyword";
+            this.keywordDataGridViewTextBoxColumn1.HeaderText = "keyword";
+            this.keywordDataGridViewTextBoxColumn1.Name = "keywordDataGridViewTextBoxColumn1";
+            this.keywordDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // commentscountDataGridViewTextBoxColumn1
+            // 
+            this.commentscountDataGridViewTextBoxColumn1.DataPropertyName = "comments_count";
+            this.commentscountDataGridViewTextBoxColumn1.HeaderText = "comments_count";
+            this.commentscountDataGridViewTextBoxColumn1.Name = "commentscountDataGridViewTextBoxColumn1";
+            this.commentscountDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // storescountDataGridViewTextBoxColumn1
+            // 
+            this.storescountDataGridViewTextBoxColumn1.DataPropertyName = "stores_count";
+            this.storescountDataGridViewTextBoxColumn1.HeaderText = "stores_count";
+            this.storescountDataGridViewTextBoxColumn1.Name = "storescountDataGridViewTextBoxColumn1";
+            this.storescountDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // scoreDataGridViewTextBoxColumn1
+            // 
+            this.scoreDataGridViewTextBoxColumn1.DataPropertyName = "score";
+            this.scoreDataGridViewTextBoxColumn1.HeaderText = "score";
+            this.scoreDataGridViewTextBoxColumn1.Name = "scoreDataGridViewTextBoxColumn1";
+            this.scoreDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // uriDataGridViewTextBoxColumn1
+            // 
+            this.uriDataGridViewTextBoxColumn1.DataPropertyName = "uri";
+            this.uriDataGridViewTextBoxColumn1.HeaderText = "uri";
+            this.uriDataGridViewTextBoxColumn1.Name = "uriDataGridViewTextBoxColumn1";
+            this.uriDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // colstatus
             // 
@@ -409,6 +601,7 @@
             this.colstatus.HeaderText = "选择";
             this.colstatus.Name = "colstatus";
             this.colstatus.ReadOnly = true;
+            this.colstatus.Width = 50;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -543,169 +736,11 @@
             this.uriDataGridViewTextBoxColumn.Name = "uriDataGridViewTextBoxColumn";
             this.uriDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "products";
-            this.productsBindingSource.DataSource = this.yiyilandbDataSet;
-            // 
-            // yiyilandbDataSet
-            // 
-            this.yiyilandbDataSet.DataSetName = "yiyilandbDataSet";
-            this.yiyilandbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label2
-            // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Location = new System.Drawing.Point(3, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(263, 29);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "查询到的商品";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // productsTableAdapter
-            // 
-            this.productsTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // titleDataGridViewTextBoxColumn1
-            // 
-            this.titleDataGridViewTextBoxColumn1.DataPropertyName = "title";
-            this.titleDataGridViewTextBoxColumn1.HeaderText = "title";
-            this.titleDataGridViewTextBoxColumn1.Name = "titleDataGridViewTextBoxColumn1";
-            this.titleDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn1
-            // 
-            this.descriptionDataGridViewTextBoxColumn1.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn1.HeaderText = "description";
-            this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
-            this.descriptionDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // paramsDataGridViewTextBoxColumn1
-            // 
-            this.paramsDataGridViewTextBoxColumn1.DataPropertyName = "params";
-            this.paramsDataGridViewTextBoxColumn1.HeaderText = "params";
-            this.paramsDataGridViewTextBoxColumn1.Name = "paramsDataGridViewTextBoxColumn1";
-            this.paramsDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // currentpriceminDataGridViewTextBoxColumn1
-            // 
-            this.currentpriceminDataGridViewTextBoxColumn1.DataPropertyName = "current_price_min";
-            this.currentpriceminDataGridViewTextBoxColumn1.HeaderText = "current_price_min";
-            this.currentpriceminDataGridViewTextBoxColumn1.Name = "currentpriceminDataGridViewTextBoxColumn1";
-            this.currentpriceminDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // currentpricemaxDataGridViewTextBoxColumn1
-            // 
-            this.currentpricemaxDataGridViewTextBoxColumn1.DataPropertyName = "current_price_max";
-            this.currentpricemaxDataGridViewTextBoxColumn1.HeaderText = "current_price_max";
-            this.currentpricemaxDataGridViewTextBoxColumn1.Name = "currentpricemaxDataGridViewTextBoxColumn1";
-            this.currentpricemaxDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // originalpriceminDataGridViewTextBoxColumn1
-            // 
-            this.originalpriceminDataGridViewTextBoxColumn1.DataPropertyName = "original_price_min";
-            this.originalpriceminDataGridViewTextBoxColumn1.HeaderText = "original_price_min";
-            this.originalpriceminDataGridViewTextBoxColumn1.Name = "originalpriceminDataGridViewTextBoxColumn1";
-            this.originalpriceminDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // originalpricemaxDataGridViewTextBoxColumn1
-            // 
-            this.originalpricemaxDataGridViewTextBoxColumn1.DataPropertyName = "original_price_max";
-            this.originalpricemaxDataGridViewTextBoxColumn1.HeaderText = "original_price_max";
-            this.originalpricemaxDataGridViewTextBoxColumn1.Name = "originalpricemaxDataGridViewTextBoxColumn1";
-            this.originalpricemaxDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // monthsalescountDataGridViewTextBoxColumn1
-            // 
-            this.monthsalescountDataGridViewTextBoxColumn1.DataPropertyName = "month_sales_count";
-            this.monthsalescountDataGridViewTextBoxColumn1.HeaderText = "month_sales_count";
-            this.monthsalescountDataGridViewTextBoxColumn1.Name = "monthsalescountDataGridViewTextBoxColumn1";
-            this.monthsalescountDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // stockDataGridViewTextBoxColumn1
-            // 
-            this.stockDataGridViewTextBoxColumn1.DataPropertyName = "stock";
-            this.stockDataGridViewTextBoxColumn1.HeaderText = "stock";
-            this.stockDataGridViewTextBoxColumn1.Name = "stockDataGridViewTextBoxColumn1";
-            this.stockDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // skunumberDataGridViewTextBoxColumn1
-            // 
-            this.skunumberDataGridViewTextBoxColumn1.DataPropertyName = "skunumber";
-            this.skunumberDataGridViewTextBoxColumn1.HeaderText = "skunumber";
-            this.skunumberDataGridViewTextBoxColumn1.Name = "skunumberDataGridViewTextBoxColumn1";
-            this.skunumberDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // shippingaddressDataGridViewTextBoxColumn1
-            // 
-            this.shippingaddressDataGridViewTextBoxColumn1.DataPropertyName = "shipping_address";
-            this.shippingaddressDataGridViewTextBoxColumn1.HeaderText = "shipping_address";
-            this.shippingaddressDataGridViewTextBoxColumn1.Name = "shippingaddressDataGridViewTextBoxColumn1";
-            this.shippingaddressDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // shopidDataGridViewTextBoxColumn1
-            // 
-            this.shopidDataGridViewTextBoxColumn1.DataPropertyName = "shop_id";
-            this.shopidDataGridViewTextBoxColumn1.HeaderText = "shop_id";
-            this.shopidDataGridViewTextBoxColumn1.Name = "shopidDataGridViewTextBoxColumn1";
-            this.shopidDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // categoryidDataGridViewTextBoxColumn1
-            // 
-            this.categoryidDataGridViewTextBoxColumn1.DataPropertyName = "category_id";
-            this.categoryidDataGridViewTextBoxColumn1.HeaderText = "category_id";
-            this.categoryidDataGridViewTextBoxColumn1.Name = "categoryidDataGridViewTextBoxColumn1";
-            this.categoryidDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // keywordDataGridViewTextBoxColumn1
-            // 
-            this.keywordDataGridViewTextBoxColumn1.DataPropertyName = "keyword";
-            this.keywordDataGridViewTextBoxColumn1.HeaderText = "keyword";
-            this.keywordDataGridViewTextBoxColumn1.Name = "keywordDataGridViewTextBoxColumn1";
-            this.keywordDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // commentscountDataGridViewTextBoxColumn1
-            // 
-            this.commentscountDataGridViewTextBoxColumn1.DataPropertyName = "comments_count";
-            this.commentscountDataGridViewTextBoxColumn1.HeaderText = "comments_count";
-            this.commentscountDataGridViewTextBoxColumn1.Name = "commentscountDataGridViewTextBoxColumn1";
-            this.commentscountDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // storescountDataGridViewTextBoxColumn1
-            // 
-            this.storescountDataGridViewTextBoxColumn1.DataPropertyName = "stores_count";
-            this.storescountDataGridViewTextBoxColumn1.HeaderText = "stores_count";
-            this.storescountDataGridViewTextBoxColumn1.Name = "storescountDataGridViewTextBoxColumn1";
-            this.storescountDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // scoreDataGridViewTextBoxColumn1
-            // 
-            this.scoreDataGridViewTextBoxColumn1.DataPropertyName = "score";
-            this.scoreDataGridViewTextBoxColumn1.HeaderText = "score";
-            this.scoreDataGridViewTextBoxColumn1.Name = "scoreDataGridViewTextBoxColumn1";
-            this.scoreDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // uriDataGridViewTextBoxColumn1
-            // 
-            this.uriDataGridViewTextBoxColumn1.DataPropertyName = "uri";
-            this.uriDataGridViewTextBoxColumn1.HeaderText = "uri";
-            this.uriDataGridViewTextBoxColumn1.Name = "uriDataGridViewTextBoxColumn1";
-            this.uriDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 502);
+            this.ClientSize = new System.Drawing.Size(1092, 666);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel2);
@@ -723,9 +758,9 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yiyilandbDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -764,6 +799,30 @@
         private yiyilandbDataSet yiyilandbDataSet;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private yiyilandbDataSetTableAdapters.productsTableAdapter productsTableAdapter;
+        private System.Windows.Forms.BindingSource productsBindingSource1;
+        private yiyilandbDataSet yiyilandbDataSet1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colcheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paramsDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currentpriceminDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currentpricemaxDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn originalpriceminDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn originalpricemaxDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monthsalescountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn skunumberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shippingaddressDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shopidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keywordDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentscountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storescountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uriDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn colstatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
@@ -784,27 +843,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn storescountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uriDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource productsBindingSource1;
-        private yiyilandbDataSet yiyilandbDataSet1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paramsDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currentpriceminDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currentpricemaxDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn originalpriceminDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn originalpricemaxDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn monthsalescountDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn skunumberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shippingaddressDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shopidDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryidDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keywordDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentscountDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storescountDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uriDataGridViewTextBoxColumn1;
     }
 }
 
