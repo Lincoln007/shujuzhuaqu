@@ -13,7 +13,7 @@ namespace Exportdataprocessing
         public ImportDbContext()
         {
         }
-        public async Task<bool> UpdateFromDataTable(DataTable dt, dgtprogress func)
+        public async Task<bool> UpdateFromDataTable(DataTable dt, dgtprogress func,string remark,string remarkid)
         {
             await Task.Run(() =>
             {
@@ -28,7 +28,7 @@ namespace Exportdataprocessing
                         using (YIyilanDatabaseContainer dbcontext = new YIyilanDatabaseContainer())
                         {
                             string id = row[parserow.id].ToString();
-                            if(!UpdateProductTable(dbcontext, row))
+                            if(!UpdateProductTable(dbcontext, row, remark,remarkid))
                             {
                                 continue;
                             }
@@ -122,7 +122,7 @@ namespace Exportdataprocessing
             }
 
         }
-        private bool UpdateProductTable(YIyilanDatabaseContainer dbcontext, DataRow row)
+        private bool UpdateProductTable(YIyilanDatabaseContainer dbcontext, DataRow row, string remark, string remarkid)
         {
             try
             {
@@ -179,6 +179,8 @@ namespace Exportdataprocessing
                 pro.original_price_max = maxprice;
                 pro.stores_count = int.Parse(stores_count);
                 pro.score = decimal.Parse(score);
+                pro.remark = remark;
+                pro.remarkid = remarkid;
                 if (isnew)
                 {
                     dbcontext.products.Add(pro);

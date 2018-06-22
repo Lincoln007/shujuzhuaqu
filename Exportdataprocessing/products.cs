@@ -33,5 +33,7 @@ namespace Exportdataprocessing
         public Nullable<int> stores_count { get; set; }
         public Nullable<decimal> score { get; set; }
         public string uri { get; set; }
+        public string remark { get; set; }
+        public string remarkid { get; set; }
     }
 }

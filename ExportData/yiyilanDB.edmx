@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="yiyilandbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="yiyilandbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="imagedetail">
           <Key>
             <PropertyRef Name="id" />
@@ -46,6 +46,8 @@
           <Property Name="stores_count" Type="int" />
           <Property Name="score" Type="numeric" Precision="18" Scale="0" />
           <Property Name="uri" Type="nchar" MaxLength="256" />
+          <Property Name="remark" Type="nchar" MaxLength="256" />
+          <Property Name="remarkid" Type="nchar" MaxLength="64" />
         </EntityType>
         <EntityType Name="productskus">
           <Key>
@@ -70,8 +72,7 @@
           <EntitySet Name="productskus" EntityType="Self.productskus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="shops" EntityType="Self.shops" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="yiyilandbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -116,6 +117,8 @@
           <Property Name="stores_count" Type="Int32" />
           <Property Name="score" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="uri" Type="String" MaxLength="256" FixedLength="true" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="256" FixedLength="true" Unicode="true" />
+          <Property Name="remarkid" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="productskus">
           <Key>
@@ -168,6 +171,8 @@
           <EntitySetMapping Name="products">
             <EntityTypeMapping TypeName="yiyilandbModel.products">
               <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="remarkid" ColumnName="remarkid" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="description" ColumnName="description" />

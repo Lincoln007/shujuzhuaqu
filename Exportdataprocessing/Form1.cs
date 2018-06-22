@@ -22,6 +22,7 @@ namespace Exportdataprocessing
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            textBox2.Text = Guid.NewGuid().ToString();
             string path = Path.Combine(Application.StartupPath, "config.ini");
             if (File.Exists(path))
             {
@@ -176,7 +177,7 @@ namespace Exportdataprocessing
             }
             panel1.Enabled = false;
             ImportDbContext dbContext = new ImportDbContext();
-            await dbContext.UpdateFromDataTable(m_readdata.ProductData, UpdateProcess);
+            await dbContext.UpdateFromDataTable(m_readdata.ProductData, UpdateProcess,textBox1.Text,textBox2.Text);
             panel1.Enabled= true;
         }
     }

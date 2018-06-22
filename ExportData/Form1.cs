@@ -127,11 +127,13 @@ namespace ExportData
         private async void button3_Click(object sender, EventArgs e)
         {
             List<string> lst = new List<string>();
+            List<DataGridViewRow> lstrows = new List<DataGridViewRow>();
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
-                if ((bool)row.Cells[0].Value)
+                if (row.Cells[0].Value != null && (bool)row.Cells[0].Value)
                 {
-                    lst.Add(row.Cells[1].Value.ToString());
+                    lst.Add(row.Cells[colid2.Index].Value.ToString().Trim());
+                    lstrows.Add(row);
                 }
             }
             lst.Except(alreaddownload);
@@ -140,87 +142,107 @@ namespace ExportData
             {
                 downloading.Add(item.Trim());
             }
-            foreach (var item in lst)
+            int count = 0;
+            foreach (var row in lstrows)
             {
-                string id = item.Trim();
-                bool rtn= await DownLoadProduct(id);
-                if(rtn)
+                string id = row.Cells[colid2.Index].Value.ToString().Trim();
+                if (!lst.Contains(id)) continue;
+                (row.Cells[colbtn.Index] as DataGridViewButtonCell).Value = "下载中";
+
+            }
+            foreach (var row in lstrows)
+            {
+                string id = row.Cells[colid2.Index].Value.ToString().Trim();
+                if (!lst.Contains(id)) continue;
+                (row.Cells[colbtn.Index] as DataGridViewButtonCell).Value = "下载中";
+                bool rtn = await DownLoadProduct(id);
+                if (rtn)
                 {
+                    (row.Cells[colbtn.Index] as DataGridViewButtonCell).Value = "打开";
                     alreaddownload.Add(id);
                 }
+                else
+                {
+                    (row.Cells[colbtn.Index] as DataGridViewButtonCell).Value = "下载失败";
+                }
                 downloading.Remove(id);
+                count++;
             }
-
         }
         private async Task<bool> DownLoadProduct(string id)
         {
-            var t = Task.Run(() =>
-             {
-                 //先查询产品信息
-                 using (yiyilandbEntities dbcontext = new yiyilandbEntities())
-                 {
-                     try
-                     {
-                         {
-                             //下载商品标题图片和详情图片
-                             var arrs = from imagedetail in dbcontext.imagedetail
-                                        where id == imagedetail.id
-                                        select imagedetail;
-                             int count = 0;
-                             foreach (var item in arrs)
-                             {
-                                 count = 0;
-                                 string strimages = item.images;
-                                 if (!string.IsNullOrEmpty(strimages))
-                                 {
-                                     var images = strimages.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-                                     string path = Path.Combine(AppConfigContext.Instance.WorkingPath, id, "images");
-                                     foreach (var uri in images)
-                                     {
-                                         count++;
-                                         DownloadOneFileByURLWithWebClient(count.ToString(), uri, path);
-                                     }
-                                 }
-                                 count = 0;
-                                 string strdetails = item.details;
-                                 if (!string.IsNullOrEmpty(strdetails))
-                                 {
-                                     var details = strdetails.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-                                     string path = Path.Combine(AppConfigContext.Instance.WorkingPath, id, "details");
-                                     foreach (var uri in details)
-                                     {
-                                         count++;
-                                         DownloadOneFileByURLWithWebClient(count.ToString(), uri, path);
-                                     }
-                                 }
-                             }
-                         }
+            return await DownImage(id);
+        }
 
-                         {
-                             //下载sku图片
-                             var arrs = from sku in dbcontext.productskus
-                                        where sku.id == id
-                                        select sku;
-                             string path = Path.Combine(AppConfigContext.Instance.WorkingPath, id, "skus");
-                             foreach (var item in arrs)
-                             {
-                                 if (!string.IsNullOrEmpty(item.skname))
-                                 {
-                                     DownloadOneFileByURLWithWebClient(item.skname, item.imageurl, path);
-                                 }
-                             }
-                         }
-                         return true;
-                     }
-                     catch (Exception ex)
-                     {
-                         return false;
-                     }
-                 }
-             });
+        private async Task<bool> DownImage(string id)
+        {
+            var t = Task.Run(() =>
+            {
+                //先查询产品信息
+                using (yiyilandbEntities dbcontext = new yiyilandbEntities())
+                {
+                    try
+                    {
+                        {
+                            //下载商品标题图片和详情图片
+                            var arrs = from imagedetail in dbcontext.imagedetail
+                                       where id == imagedetail.id
+                                       select imagedetail;
+                            int count = 0;
+                            foreach (var item in arrs)
+                            {
+                                count = 0;
+                                string strimages = item.images;
+                                if (!string.IsNullOrEmpty(strimages))
+                                {
+                                    var images = strimages.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+                                    string path = Path.Combine(AppConfigContext.Instance.WorkingPath, id, "images");
+                                    foreach (var uri in images)
+                                    {
+                                        count++;
+                                        DownloadOneFileByURLWithWebClient(count.ToString(), uri, path);
+                                    }
+                                }
+                                count = 0;
+                                string strdetails = item.details;
+                                if (!string.IsNullOrEmpty(strdetails))
+                                {
+                                    var details = strdetails.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+                                    string path = Path.Combine(AppConfigContext.Instance.WorkingPath, id, "details");
+                                    foreach (var uri in details)
+                                    {
+                                        count++;
+                                        DownloadOneFileByURLWithWebClient(count.ToString(), uri, path);
+                                    }
+                                }
+                            }
+                        }
+                        {
+                            //下载sku图片
+                            var arrs = from sku in dbcontext.productskus
+                                       where sku.id == id
+                                       select sku;
+                            string path = Path.Combine(AppConfigContext.Instance.WorkingPath, id, "skus");
+                            foreach (var item in arrs)
+                            {
+                                if (!string.IsNullOrEmpty(item.skname))
+                                {
+                                    DownloadOneFileByURLWithWebClient(item.skname, item.imageurl, path);
+                                }
+                            }
+                        }
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        return false;
+                    }
+                }
+            });
             await t;
             return t.Result;
         }
+
         public void DownloadOneFileByURLWithWebClient(string fileName, string url, string localPath)
         {
             try
@@ -232,6 +254,75 @@ namespace ExportData
                     if (File.Exists(filepath)) { File.Delete(filepath); }
                     if (Directory.Exists(localPath) == false) { Directory.CreateDirectory(localPath); }
                     wc.DownloadFile(url, filepath);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private async void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == colbtn.Index)
+            {
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+                if (row != null)
+                {
+                    string id = row.Cells[colid2.Index].Value.ToString().Trim();
+                    if (downloading.Contains(id))
+                    {
+                        return;
+                    }
+                    else if (alreaddownload.Contains(id))
+                    {
+                        OpenExplore(id);
+                    }
+                    else
+                    {
+                        downloading.Add(id);
+                        row.Cells[colbtn.Index].Value = "下载中";
+                        bool rtn = await DownLoadProduct(id);
+                        if (rtn)
+                        {
+                            alreaddownload.Add(id);
+                            row.Cells[colbtn.Index].Value = "打开";
+                        }
+                        else
+                        {
+                            row.Cells[colbtn.Index].Value = "下载失败";
+                        }
+                        downloading.Remove(id);
+                    }
+                }
+            }
+        }
+
+        private void OpenExplore(string id)
+        {
+            try
+            {
+                string path = Path.Combine(AppConfigContext.Instance.WorkingPath, id);
+                System.Diagnostics.Process.Start("Explorer.exe", path);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<yiyilandbDataSet.productsRow> lst = new List<yiyilandbDataSet.productsRow>();
+                foreach (DataGridViewRow row in dataGridView2.Rows)
+                {
+                    if ((bool)row.Cells[0].Value)
+                    {
+                        yiyilandbDataSet.productsRow switchrow = ((DataRowView)row.DataBoundItem).Row as yiyilandbDataSet.productsRow;
+                        yiyilandbDataSet.products.ImportRow(switchrow);
+                        yiyilandbDataSet1.products.RemoveproductsRow(switchrow);
+                    }
                 }
             }
             catch (Exception ex)

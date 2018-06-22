@@ -30,12 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.splitter2 = new System.Windows.Forms.Splitter();
-            this.btnimport = new System.Windows.Forms.Button();
-            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.btnupdate = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtscore = new System.Windows.Forms.TextBox();
+            this.txtstores_count = new System.Windows.Forms.TextBox();
+            this.txturl = new System.Windows.Forms.TextBox();
+            this.txtdetail = new System.Windows.Forms.TextBox();
+            this.txtcomments_count = new System.Windows.Forms.TextBox();
+            this.txtimages = new System.Windows.Forms.TextBox();
+            this.txtkeyword = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtcategory_id = new System.Windows.Forms.TextBox();
+            this.txtshop_name = new System.Windows.Forms.TextBox();
             this.txtshop_id = new System.Windows.Forms.TextBox();
             this.txtsku = new System.Windows.Forms.TextBox();
             this.txtshipping_address = new System.Windows.Forms.TextBox();
@@ -48,31 +54,33 @@
             this.txttitle = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtshop_name = new System.Windows.Forms.TextBox();
-            this.txtcategory_id = new System.Windows.Forms.TextBox();
-            this.txtkeyword = new System.Windows.Forms.TextBox();
-            this.txtcomments_count = new System.Windows.Forms.TextBox();
-            this.txturl = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.txtimages = new System.Windows.Forms.TextBox();
-            this.txtdetail = new System.Windows.Forms.TextBox();
-            this.txtstores_count = new System.Windows.Forms.TextBox();
-            this.txtscore = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.splitter3 = new System.Windows.Forms.Splitter();
-            this.splitter4 = new System.Windows.Forms.Splitter();
+            this.btnimport = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.ctlImageurl1 = new Exportdataprocessing.ctlImageurl();
+            this.splitter4 = new System.Windows.Forms.Splitter();
             this.ctlSKU1 = new Exportdataprocessing.ctlSKU();
+            this.splitter3 = new System.Windows.Forms.Splitter();
             this.ctlParam1 = new Exportdataprocessing.ctlParam();
-            this.btnupdate = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnupdate);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txtscore);
@@ -104,73 +112,105 @@
             this.panel1.Size = new System.Drawing.Size(248, 748);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // btnupdate
             // 
-            this.panel2.Controls.Add(this.dgvProduct);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(254, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.panel2.Size = new System.Drawing.Size(481, 748);
-            this.panel2.TabIndex = 0;
+            this.btnupdate.Location = new System.Drawing.Point(147, 12);
+            this.btnupdate.Name = "btnupdate";
+            this.btnupdate.Size = new System.Drawing.Size(75, 23);
+            this.btnupdate.TabIndex = 24;
+            this.btnupdate.Text = "更新到数据库";
+            this.btnupdate.UseVisualStyleBackColor = true;
+            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
-            // splitter1
+            // button1
             // 
-            this.splitter1.Location = new System.Drawing.Point(251, 3);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 748);
-            this.splitter1.TabIndex = 1;
-            this.splitter1.TabStop = false;
+            this.button1.Location = new System.Drawing.Point(109, 534);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "设置默认列号";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel3
+            // txtscore
             // 
-            this.panel3.Controls.Add(this.ctlImageurl1);
-            this.panel3.Controls.Add(this.splitter4);
-            this.panel3.Controls.Add(this.ctlSKU1);
-            this.panel3.Controls.Add(this.splitter3);
-            this.panel3.Controls.Add(this.ctlParam1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(738, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(3);
-            this.panel3.Size = new System.Drawing.Size(317, 748);
-            this.panel3.TabIndex = 0;
+            this.txtscore.Location = new System.Drawing.Point(173, 507);
+            this.txtscore.Name = "txtscore";
+            this.txtscore.Size = new System.Drawing.Size(40, 21);
+            this.txtscore.TabIndex = 12;
+            this.txtscore.Text = "18";
             // 
-            // splitter2
+            // txtstores_count
             // 
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(735, 3);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 748);
-            this.splitter2.TabIndex = 2;
-            this.splitter2.TabStop = false;
+            this.txtstores_count.Location = new System.Drawing.Point(173, 483);
+            this.txtstores_count.Name = "txtstores_count";
+            this.txtstores_count.Size = new System.Drawing.Size(40, 21);
+            this.txtstores_count.TabIndex = 12;
+            this.txtstores_count.Text = "18";
             // 
-            // btnimport
+            // txturl
             // 
-            this.btnimport.Location = new System.Drawing.Point(12, 12);
-            this.btnimport.Name = "btnimport";
-            this.btnimport.Size = new System.Drawing.Size(75, 23);
-            this.btnimport.TabIndex = 0;
-            this.btnimport.Text = "导入";
-            this.btnimport.UseVisualStyleBackColor = true;
-            this.btnimport.Click += new System.EventHandler(this.btnimport_Click);
+            this.txturl.Location = new System.Drawing.Point(173, 407);
+            this.txturl.Name = "txturl";
+            this.txturl.Size = new System.Drawing.Size(40, 21);
+            this.txturl.TabIndex = 12;
+            this.txturl.Text = "18";
             // 
-            // dgvProduct
+            // txtdetail
             // 
-            this.dgvProduct.AllowUserToAddRows = false;
-            this.dgvProduct.AllowUserToDeleteRows = false;
-            this.dgvProduct.AllowUserToResizeRows = false;
-            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProduct.Location = new System.Drawing.Point(3, 3);
-            this.dgvProduct.MultiSelect = false;
-            this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.ReadOnly = true;
-            this.dgvProduct.RowTemplate.Height = 23;
-            this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(475, 742);
-            this.dgvProduct.TabIndex = 0;
-            this.dgvProduct.CurrentCellChanged += new System.EventHandler(this.dgvProduct_CurrentCellChanged);
+            this.txtdetail.Location = new System.Drawing.Point(173, 458);
+            this.txtdetail.Name = "txtdetail";
+            this.txtdetail.Size = new System.Drawing.Size(40, 21);
+            this.txtdetail.TabIndex = 12;
+            this.txtdetail.Text = "18";
+            // 
+            // txtcomments_count
+            // 
+            this.txtcomments_count.Location = new System.Drawing.Point(173, 382);
+            this.txtcomments_count.Name = "txtcomments_count";
+            this.txtcomments_count.Size = new System.Drawing.Size(40, 21);
+            this.txtcomments_count.TabIndex = 12;
+            this.txtcomments_count.Text = "18";
+            // 
+            // txtimages
+            // 
+            this.txtimages.Location = new System.Drawing.Point(173, 433);
+            this.txtimages.Name = "txtimages";
+            this.txtimages.Size = new System.Drawing.Size(40, 21);
+            this.txtimages.TabIndex = 12;
+            this.txtimages.Text = "18";
+            // 
+            // txtkeyword
+            // 
+            this.txtkeyword.Location = new System.Drawing.Point(173, 357);
+            this.txtkeyword.Name = "txtkeyword";
+            this.txtkeyword.Size = new System.Drawing.Size(40, 21);
+            this.txtkeyword.TabIndex = 12;
+            this.txtkeyword.Text = "18";
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(173, 409);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(40, 21);
+            this.textBox17.TabIndex = 12;
+            this.textBox17.Text = "18";
+            // 
+            // txtcategory_id
+            // 
+            this.txtcategory_id.Location = new System.Drawing.Point(173, 333);
+            this.txtcategory_id.Name = "txtcategory_id";
+            this.txtcategory_id.Size = new System.Drawing.Size(40, 21);
+            this.txtcategory_id.TabIndex = 12;
+            this.txtcategory_id.Text = "18";
+            // 
+            // txtshop_name
+            // 
+            this.txtshop_name.Location = new System.Drawing.Point(173, 309);
+            this.txtshop_name.Name = "txtshop_name";
+            this.txtshop_name.Size = new System.Drawing.Size(40, 21);
+            this.txtshop_name.TabIndex = 12;
+            this.txtshop_name.Text = "18";
             // 
             // txtshop_id
             // 
@@ -269,104 +309,72 @@
             this.label1.Text = resources.GetString("label1.Text");
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // txtshop_name
+            // btnimport
             // 
-            this.txtshop_name.Location = new System.Drawing.Point(173, 309);
-            this.txtshop_name.Name = "txtshop_name";
-            this.txtshop_name.Size = new System.Drawing.Size(40, 21);
-            this.txtshop_name.TabIndex = 12;
-            this.txtshop_name.Text = "18";
+            this.btnimport.Location = new System.Drawing.Point(12, 12);
+            this.btnimport.Name = "btnimport";
+            this.btnimport.Size = new System.Drawing.Size(75, 23);
+            this.btnimport.TabIndex = 0;
+            this.btnimport.Text = "导入";
+            this.btnimport.UseVisualStyleBackColor = true;
+            this.btnimport.Click += new System.EventHandler(this.btnimport_Click);
             // 
-            // txtcategory_id
+            // panel2
             // 
-            this.txtcategory_id.Location = new System.Drawing.Point(173, 333);
-            this.txtcategory_id.Name = "txtcategory_id";
-            this.txtcategory_id.Size = new System.Drawing.Size(40, 21);
-            this.txtcategory_id.TabIndex = 12;
-            this.txtcategory_id.Text = "18";
+            this.panel2.Controls.Add(this.dgvProduct);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(254, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(3);
+            this.panel2.Size = new System.Drawing.Size(481, 748);
+            this.panel2.TabIndex = 0;
             // 
-            // txtkeyword
+            // dgvProduct
             // 
-            this.txtkeyword.Location = new System.Drawing.Point(173, 357);
-            this.txtkeyword.Name = "txtkeyword";
-            this.txtkeyword.Size = new System.Drawing.Size(40, 21);
-            this.txtkeyword.TabIndex = 12;
-            this.txtkeyword.Text = "18";
+            this.dgvProduct.AllowUserToAddRows = false;
+            this.dgvProduct.AllowUserToDeleteRows = false;
+            this.dgvProduct.AllowUserToResizeRows = false;
+            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProduct.Location = new System.Drawing.Point(3, 3);
+            this.dgvProduct.MultiSelect = false;
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.ReadOnly = true;
+            this.dgvProduct.RowTemplate.Height = 23;
+            this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProduct.Size = new System.Drawing.Size(475, 742);
+            this.dgvProduct.TabIndex = 0;
+            this.dgvProduct.CurrentCellChanged += new System.EventHandler(this.dgvProduct_CurrentCellChanged);
             // 
-            // txtcomments_count
+            // splitter1
             // 
-            this.txtcomments_count.Location = new System.Drawing.Point(173, 382);
-            this.txtcomments_count.Name = "txtcomments_count";
-            this.txtcomments_count.Size = new System.Drawing.Size(40, 21);
-            this.txtcomments_count.TabIndex = 12;
-            this.txtcomments_count.Text = "18";
+            this.splitter1.Location = new System.Drawing.Point(251, 3);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 748);
+            this.splitter1.TabIndex = 1;
+            this.splitter1.TabStop = false;
             // 
-            // txturl
+            // panel3
             // 
-            this.txturl.Location = new System.Drawing.Point(173, 407);
-            this.txturl.Name = "txturl";
-            this.txturl.Size = new System.Drawing.Size(40, 21);
-            this.txturl.TabIndex = 12;
-            this.txturl.Text = "18";
+            this.panel3.Controls.Add(this.ctlImageurl1);
+            this.panel3.Controls.Add(this.splitter4);
+            this.panel3.Controls.Add(this.ctlSKU1);
+            this.panel3.Controls.Add(this.splitter3);
+            this.panel3.Controls.Add(this.ctlParam1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(738, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(3);
+            this.panel3.Size = new System.Drawing.Size(317, 748);
+            this.panel3.TabIndex = 0;
             // 
-            // textBox17
+            // ctlImageurl1
             // 
-            this.textBox17.Location = new System.Drawing.Point(173, 409);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(40, 21);
-            this.textBox17.TabIndex = 12;
-            this.textBox17.Text = "18";
-            // 
-            // txtimages
-            // 
-            this.txtimages.Location = new System.Drawing.Point(173, 433);
-            this.txtimages.Name = "txtimages";
-            this.txtimages.Size = new System.Drawing.Size(40, 21);
-            this.txtimages.TabIndex = 12;
-            this.txtimages.Text = "18";
-            // 
-            // txtdetail
-            // 
-            this.txtdetail.Location = new System.Drawing.Point(173, 458);
-            this.txtdetail.Name = "txtdetail";
-            this.txtdetail.Size = new System.Drawing.Size(40, 21);
-            this.txtdetail.TabIndex = 12;
-            this.txtdetail.Text = "18";
-            // 
-            // txtstores_count
-            // 
-            this.txtstores_count.Location = new System.Drawing.Point(173, 483);
-            this.txtstores_count.Name = "txtstores_count";
-            this.txtstores_count.Size = new System.Drawing.Size(40, 21);
-            this.txtstores_count.TabIndex = 12;
-            this.txtstores_count.Text = "18";
-            // 
-            // txtscore
-            // 
-            this.txtscore.Location = new System.Drawing.Point(173, 507);
-            this.txtscore.Name = "txtscore";
-            this.txtscore.Size = new System.Drawing.Size(40, 21);
-            this.txtscore.TabIndex = 12;
-            this.txtscore.Text = "18";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(109, 534);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "设置默认列号";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // splitter3
-            // 
-            this.splitter3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitter3.Location = new System.Drawing.Point(3, 172);
-            this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(311, 3);
-            this.splitter3.TabIndex = 1;
-            this.splitter3.TabStop = false;
+            this.ctlImageurl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctlImageurl1.Location = new System.Drawing.Point(3, 366);
+            this.ctlImageurl1.Name = "ctlImageurl1";
+            this.ctlImageurl1.Size = new System.Drawing.Size(311, 379);
+            this.ctlImageurl1.TabIndex = 4;
             // 
             // splitter4
             // 
@@ -377,14 +385,6 @@
             this.splitter4.TabIndex = 3;
             this.splitter4.TabStop = false;
             // 
-            // ctlImageurl1
-            // 
-            this.ctlImageurl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctlImageurl1.Location = new System.Drawing.Point(3, 366);
-            this.ctlImageurl1.Name = "ctlImageurl1";
-            this.ctlImageurl1.Size = new System.Drawing.Size(311, 379);
-            this.ctlImageurl1.TabIndex = 4;
-            // 
             // ctlSKU1
             // 
             this.ctlSKU1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -392,6 +392,15 @@
             this.ctlSKU1.Name = "ctlSKU1";
             this.ctlSKU1.Size = new System.Drawing.Size(311, 188);
             this.ctlSKU1.TabIndex = 2;
+            // 
+            // splitter3
+            // 
+            this.splitter3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter3.Location = new System.Drawing.Point(3, 172);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(311, 3);
+            this.splitter3.TabIndex = 1;
+            this.splitter3.TabStop = false;
             // 
             // ctlParam1
             // 
@@ -401,15 +410,46 @@
             this.ctlParam1.Size = new System.Drawing.Size(311, 169);
             this.ctlParam1.TabIndex = 0;
             // 
-            // btnupdate
+            // splitter2
             // 
-            this.btnupdate.Location = new System.Drawing.Point(147, 12);
-            this.btnupdate.Name = "btnupdate";
-            this.btnupdate.Size = new System.Drawing.Size(75, 23);
-            this.btnupdate.TabIndex = 24;
-            this.btnupdate.Text = "更新到数据库";
-            this.btnupdate.UseVisualStyleBackColor = true;
-            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter2.Location = new System.Drawing.Point(735, 3);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(3, 748);
+            this.splitter2.TabIndex = 2;
+            this.splitter2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 587);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "remark";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(86, 584);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(127, 21);
+            this.textBox1.TabIndex = 26;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 614);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "remarkid";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(86, 611);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(127, 21);
+            this.textBox2.TabIndex = 26;
             // 
             // Form1
             // 
@@ -427,8 +467,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -471,6 +511,10 @@
         private ctlSKU ctlSKU1;
         private ctlImageurl ctlImageurl1;
         private System.Windows.Forms.Button btnupdate;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
