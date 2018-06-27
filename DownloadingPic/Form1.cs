@@ -286,6 +286,7 @@ namespace DownloadingPic
             {
                 try
                 {
+                    SetText(path);
                     csv.WriteField(id);
                     csv.WriteField(uri);
                     csv.WriteField(title);
