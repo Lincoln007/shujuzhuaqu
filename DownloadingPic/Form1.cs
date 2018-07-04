@@ -23,7 +23,58 @@ namespace DownloadingPic
         {
             InitializeComponent();
             linkLabel1.Text = AppConfigContext.Instance.WorkingPath;
+            DataGridViewEnablePaste(dataGridView1);
         }
+        public void DataGridViewEnablePaste(DataGridView p_Data)
+        {
+            if (p_Data == null)
+                return;
+            p_Data.KeyDown += new KeyEventHandler(p_Data_KeyDown);
+        }
+        public void p_Data_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Control.ModifierKeys == System.Windows.Forms.Keys.Control && e.KeyCode == System.Windows.Forms.Keys.V)
+            {
+                if (sender != null && sender.GetType() == typeof(DataGridView))
+                    // 调用上面的粘贴代码
+                    DataGirdViewCellPaste((DataGridView)sender);
+            }
+        }
+        public void DataGirdViewCellPaste(DataGridView p_Data)
+        {
+            try
+            {
+                // 获取剪切板的内容，并按行分割
+                string pasteText = Clipboard.GetText();
+                if (string.IsNullOrEmpty(pasteText))
+                    return;
+                string[] lines = pasteText.Split(new char[] { '\n', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string line in lines)
+                {
+                    string tmp = line.Trim();
+                    if (string.IsNullOrEmpty(tmp))
+                        continue;
+                    bool continueflag = false;
+                    // 按 Tab 分割数据
+                    foreach (DataGridViewRow row in p_Data.Rows)
+                    {
+                        if (row.Cells[0].Value?.ToString() == tmp)
+                        {
+                            continueflag = true;
+                            break;
+                        }
+                    }
+                    if (continueflag) continue;
+                    string[] vals = tmp.Split(' ');
+                    p_Data.Rows.Add(vals);
+                }
+            }
+            catch
+            {
+                // 不处理
+            }
+        }
+
         private void InitWebDriver()
         {
             if (service == null)
@@ -42,7 +93,7 @@ namespace DownloadingPic
         }
         private void UninitWebDriver()
         {
-            if(service!=null)
+            if (service != null)
             {
                 driver.Close();
                 driver.Dispose();
@@ -72,7 +123,12 @@ namespace DownloadingPic
         {
             try
             {
-                string strurl = "https:" + url;
+                if (string.IsNullOrEmpty(url)) return;
+                string strurl = url;
+                if (url.IndexOf("//") == 0)
+                {
+                    strurl = "https:" + url;
+                }
                 using (System.Net.WebClient wc = new System.Net.WebClient())
                 {
                     fileName = fileName.Replace("*", "乘");
@@ -86,6 +142,37 @@ namespace DownloadingPic
             {
 
             }
+        }
+
+
+        private async void btnDownloadAll_Click(object sender, EventArgs e)
+        {
+            panel2.Enabled = false;
+            InitWebDriver();
+            await 下载队列中的所有连接();
+            UninitWebDriver();
+            panel2.Enabled = true;
+        }
+        private async Task<bool> 下载队列中的所有连接()
+        {
+            while (dataGridView1.Rows.Count > 0)
+            {
+                string url = dataGridView1[0, 0]?.Value.ToString();
+                if (!string.IsNullOrEmpty(url))
+                {
+                    dataGridView1.Rows.RemoveAt(0);
+                    bool rtn = await 根据网址抓取商品(url);
+                    if (rtn)
+                    {
+                        dataGridView2.Rows.Add(url);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return true;
         }
 
         private async void btndownload_Click(object sender, EventArgs e)
@@ -102,15 +189,36 @@ namespace DownloadingPic
         private void LoadProductUri(string uri)
         {
             driver.Navigate().GoToUrl(uri);
-
+            //document.body.scrollHeight
             //driver.Navigate().GoToUrl(string.Format("https://{0}", uri));
-            //将页面滚动条拖到底部
-            for (int i = 0; i < 10; i++)
+            int height = 0;
+            try
             {
-                int row = (i + 1) * 2000;
-                ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
-                Thread.Sleep(100);
+                var ele = wait.Until<IWebElement>((d) => { return d.FindElement(By.CssSelector("#copyright > div > a")); });
+                height = ele.Location.Y;
             }
+            catch (Exception e)
+            {
+            }
+            //将页面滚动条拖到底部
+            if (height > 1000)
+            {
+                for (int row = 0; row < height; row += 500)
+                {
+                    ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
+                    Thread.Sleep(100);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    int row = (i + 1) * 2000;
+                    ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
+                    Thread.Sleep(100);
+                }
+            }
+
         }
         private async Task<bool> 根据网址抓取商品(string uri)
         {
@@ -197,83 +305,133 @@ namespace DownloadingPic
                     //sb.AppendLine(item.GetAttributeValue("src", ""));
                 }
                 //csv.WriteField(sb.ToString().TrimEnd());
-                var 快递 = html.SelectSingleNode("//*[@id='J_WlServiceTitle']").InnerText;
+                var 快递 = html.SelectSingleNode("//*[@id='J_WlServiceTitle']")?.InnerText;
                 Console.WriteLine(快递);
                 //csv.WriteField(快递);
 
                 List<Tuple<string, string, string>> lst分类 = new List<Tuple<string, string, string>>();
                 sb.Clear();
                 //var sku_elements = driver.FindElements(By.CssSelector("#J_isku > div.tb-skin > dl.J_Prop tb-prop tb-clear  J_Prop_Color > dd > ui.J_TSaleProp tb-img tb-clearfix > li"));
-                var 分类 = html.SelectNodes("//*[@id='J_isku']/div/dl[1]/dd/ul/li/a");
+                var 分类 = html.SelectNodes("//*[@id='J_isku']/div/dl/dd/ul/li/a");
+                //*[@id="J_isku"]/div/dl[1]/dd/ul/li[1]/a
+                //*[@id="J_isku"]/div/dl[2]/dd/ul/li[1]/a
+                //*[@id="J_isku"]/div/dl[1]
+
                 if (分类 != null)
                 {
                     foreach (var item in 分类)
                     {
-                        //item.XPath
-                        //var skus= wait.Until<IWebElement>((d) => { return d.FindElement(By.CssSelector("#J_isku > div.tb-skin > dl.J_Prop tb-prop tb-clear  J_Prop_Color > dd > ui.J_TSaleProp tb-img tb-clearfix > li")); });
-                        var pic = item.GetAttributeValue("style");
-                        if (!string.IsNullOrEmpty(pic))
+                        try
                         {
-                            var tmparr = pic.Split(new char[] { '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
-                            if (tmparr.Length >= 2)
+                            //item.XPath
+                            //var skus= wait.Until<IWebElement>((d) => { return d.FindElement(By.CssSelector("#J_isku > div.tb-skin > dl.J_Prop tb-prop tb-clear  J_Prop_Color > dd > ui.J_TSaleProp tb-img tb-clearfix > li")); });
+                            var pic = item.GetAttributeValue("style");
+                            if (!string.IsNullOrEmpty(pic))
                             {
-                                pic = tmparr[1];
+                                var tmparr = pic.Split(new char[] { '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+                                if (tmparr.Length >= 2)
+                                {
+                                    pic = tmparr[1];
+                                }
                             }
-                        }
-                        var sku = item.SelectSingleNode("./span").InnerText;
-                        var sku_element = driver.FindElement(By.XPath(item.XPath));
-                        string price = "";
-                        if (sku_element != null)
-                        {
-                            sku_element.Click();
-                            Thread.Sleep(100);
-                            var priceele = FindElement(driver, "//*[@id='J_PromoPriceNum']");
-                            if (priceele == null)
+                            var sku = item.SelectSingleNode("./span").InnerText;
+                            var sku_element = driver.FindElement(By.XPath(item.XPath));
+                            string price = "";
+                            if (sku_element != null)
                             {
-                                priceele = FindElement(driver, "//*[@id='J_StrPrice']/em[2]");
-                            }
-                            if (priceele != null)
-                            {
-                                price = priceele.Text;
-                            }
-                        }
-                        lst分类.Add(new Tuple<string, string, string>(price, sku, pic));
-                        //sb.AppendLine(string.Format("{0}|{1}|{2}", price, sku, pic));
+                                sku_element.Click();
 
+                                Thread.Sleep(100);
+                                var priceele = FindElement(driver, "//*[@id='J_PromoPriceNum']");
+                                if (priceele == null)
+                                {
+                                    priceele = FindElement(driver, "//*[@id='J_StrPrice']/em[2]");
+                                }
+                                if (priceele != null)
+                                {
+                                    price = priceele.Text;
+                                }
+                            }
+                            lst分类.Add(new Tuple<string, string, string>(price, sku, pic));
+                            //sb.AppendLine(string.Format("{0}|{1}|{2}", price, sku, pic));
+                        }
+                        catch (Exception ex)
+                        {
+                        }
                     }
                 }
-                var 详情 = html.SelectNodes("//*[@id='J_DivItemDesc']/p/img");
+                var 详情 = html.SelectNodes("//*[@id='J_DivItemDesc']");
                 List<string> lst详情 = new List<string>();
-                if (详情 == null)
-                {
-                    详情 = html.SelectNodes("//*[@id='J_DivItemDesc']/div/div/img");
-                }
                 if (详情 != null)
                 {
-                    //var 图片 = html.SelectNodes("//*[@id='J_DivItemDesc']/p/strong/img");
-                    sb.Clear();
-                    //*[@id="J_DivItemDesc"]/p[2]/img[1]
-                    //*[@id="J_DivItemDesc"]/p[5]/strong/img[1]
                     foreach (var item in 详情)
                     {
-                        var pics = item.CssSelect("img");
-                        foreach (var pic in pics)
-                        {
-                            var tp = pic.GetAttributeValue("src");
-                            Console.WriteLine(tp);
-                            sb.AppendLine(tp);
-                            lst详情.Add(tp);
-                        }
+                        SelectImg(item, lst详情);
                     }
                 }
+                //var 详情 = html.SelectNodes("//*[@id='J_DivItemDesc']/p");
+                ////var 详情 = html.SelectNodes("//*[@id='J_DivItemDesc']/div/div/img");
+                //List<string> lst详情 = new List<string>();
+
+                //if (详情 == null)
+                //{
+                //    详情 = html.SelectNodes("//*[@id='J_DivItemDesc']/div/div/img");
+                //}
+                //if (详情 != null)
+                //{
+                //    //var 图片 = html.SelectNodes("//*[@id='J_DivItemDesc']/p/strong/img");
+                //    sb.Clear();
+                //    //*[@id="J_DivItemDesc"]/p[2]/img[1]
+                //    //*[@id="J_DivItemDesc"]/p[5]/strong/img[1]
+                //    foreach (var item in 详情)
+                //    {
+
+                //        if(item.Name=="img")
+                //        {
+                //            var tp = item.GetAttributeValue("src");
+                //            Console.WriteLine(tp);
+                //            sb.AppendLine(tp);
+                //            lst详情.Add(tp);
+                //        }
+                //        else
+                //        {
+                //            var pics = item.CssSelect("img");
+                //            foreach (var pic in pics)
+                //            {
+                //                var tp = pic.GetAttributeValue("src");
+                //                Console.WriteLine(tp);
+                //                sb.AppendLine(tp);
+                //                lst详情.Add(tp);
+                //            }
+                //        }
+                //    }
+                //}
                 //csv.WriteField(sb.ToString().TrimEnd());
                 rtn = WriteCsv(id, uri, strtitle, comment, lst标题图片, 快递, lst分类, lst详情);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 rtn = false;
             }
             return rtn;
+        }
+        private void SelectImg(HtmlAgilityPack.HtmlNode htmlnode, List<string> lstimg)
+        {
+            if (htmlnode != null)
+            {
+                if (htmlnode.Name == "img")
+                {
+                    var tp = htmlnode.GetAttributeValue("src");
+                    lstimg.Add(tp);
+                }
+                else
+                {
+                    foreach (var item in htmlnode.ChildNodes)
+                    {
+                        SelectImg(item, lstimg);
+                    }
+                }
+            }
         }
         private bool WriteCsv(string id, string uri, string title, string commentnum, List<string> 所有标题图片, string 快递情况, List<Tuple<string, string, string>> price_sku_tupians, List<string> 详情)
         {
@@ -315,7 +473,7 @@ namespace DownloadingPic
                         string strpath = Path.Combine(path, "sku");
                         string struri = item.Item3;
                         int index = struri.IndexOf(".jpg");
-                        if (index>0)
+                        if (index > 0)
                         {
                             struri = struri.Substring(0, index + 4);
                         }
@@ -499,6 +657,34 @@ namespace DownloadingPic
             {
 
             }
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                string uri = dataGridView2[e.ColumnIndex, e.RowIndex]?.Value.ToString();
+                if (!string.IsNullOrEmpty(uri))
+                {
+                    var arr = uri.Split(new char[] { '&', '?' }, StringSplitOptions.RemoveEmptyEntries);
+                    string id = "";
+                    id = GetIdByUri(arr);
+                    string path = Path.Combine(AppConfigContext.Instance.WorkingPath, id);
+                    try
+                    {
+                        //System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo("Explorer.exe");
+                        //psi.Arguments = "/e,/select," + AppConfigContext.Instance.WorkingPath+"\\";
+                        //System.Diagnostics.Process.Start(psi);
+                        System.Diagnostics.Process.Start("Explorer.exe", path);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+
+            }
+
         }
     }
 }
