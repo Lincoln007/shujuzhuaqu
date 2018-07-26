@@ -220,6 +220,40 @@ namespace DownloadingPic
             }
 
         }
+        private void LoadTianmaoProductUri(string uri)
+        {
+            driver.Navigate().GoToUrl(uri);
+            //document.body.scrollHeight
+            //driver.Navigate().GoToUrl(string.Format("https://{0}", uri));
+            int height = 100000;
+            //try
+            //{
+            //    var ele = wait.Until<IWebElement>((d) => { return d.FindElement(By.CssSelector("#beginner > dt > span")); });
+            //    height = ele.Location.Y;
+            //}
+            //catch (Exception e)
+            //{
+            //}
+            //将页面滚动条拖到底部
+            if (height > 1000)
+            {
+                for (int row = 0; row < height; row += 500)
+                {
+                    ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
+                    Thread.Sleep(20);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    int row = (i + 1) * 2000;
+                    ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
+                    Thread.Sleep(100);
+                }
+            }
+
+        }
         private async Task<bool> 根据网址抓取商品(string uri)
         {
             var task = Task.Run<bool>(
@@ -232,13 +266,14 @@ namespace DownloadingPic
                      //httpitem.URL = item;
                      //var html = httphelper.GetHtml(httpitem);
                      //driver.Url = item;
-                     LoadProductUri(uri);
                      if (uri.Contains("taobao"))
                      {
+                         LoadProductUri(uri);
                          rtn = 获取连接(uri);
                      }
                      else if (uri.Contains("tmall"))
                      {
+                         LoadTianmaoProductUri(uri);
                          rtn = 获取天猫连接(uri);
                      }
                      return rtn;
