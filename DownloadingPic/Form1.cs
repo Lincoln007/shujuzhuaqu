@@ -119,8 +119,21 @@ namespace DownloadingPic
 
             }
         }
-        public void DownloadOneFileByURLWithWebClient(string fileName, string url, string localPath)
+        public void DownloadOneFileByURLWithWebClientAsync(string fileName, string url, string localPath)
         {
+            Task.Run(() =>
+            {
+                DownloadOneFileByURLWithWebClient(fileName, url, localPath, false);
+            });
+        }
+        bool isyibuxiazai = false;
+        public void DownloadOneFileByURLWithWebClient(string fileName, string url, string localPath, bool flag = true)
+        {
+            if (isyibuxiazai && flag)
+            {
+                DownloadOneFileByURLWithWebClientAsync(fileName, url, localPath);
+                return;
+            }
             try
             {
                 if (string.IsNullOrEmpty(url)) return;
@@ -148,6 +161,7 @@ namespace DownloadingPic
         private async void btnDownloadAll_Click(object sender, EventArgs e)
         {
             panel2.Enabled = false;
+            isyibuxiazai = chbyibu.Checked;
             InitWebDriver();
             await 下载队列中的所有连接();
             UninitWebDriver();
@@ -188,69 +202,67 @@ namespace DownloadingPic
         WebDriverWait wait = null;
         private void LoadProductUri(string uri)
         {
-            driver.Navigate().GoToUrl(uri);
-            //document.body.scrollHeight
-            //driver.Navigate().GoToUrl(string.Format("https://{0}", uri));
             int height = 0;
             try
             {
+                driver.Navigate().GoToUrl(uri);
+                //document.body.scrollHeight
+                //driver.Navigate().GoToUrl(string.Format("https://{0}", uri));
                 var ele = wait.Until<IWebElement>((d) => { return d.FindElement(By.CssSelector("#copyright > div > a")); });
                 height = ele.Location.Y;
+
+                //将页面滚动条拖到底部
+                if (height > 1000)
+                {
+                    for (int row = 0; row < height; row += 500)
+                    {
+                        ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
+                        Thread.Sleep(100);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        int row = (i + 1) * 2000;
+                        ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
+                        Thread.Sleep(100);
+                    }
+                }
             }
             catch (Exception e)
             {
-            }
-            //将页面滚动条拖到底部
-            if (height > 1000)
-            {
-                for (int row = 0; row < height; row += 500)
-                {
-                    ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
-                    Thread.Sleep(100);
-                }
-            }
-            else
-            {
-                for (int i = 0; i < 20; i++)
-                {
-                    int row = (i + 1) * 2000;
-                    ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
-                    Thread.Sleep(100);
-                }
             }
 
         }
         private void LoadTianmaoProductUri(string uri)
         {
-            driver.Navigate().GoToUrl(uri);
-            //document.body.scrollHeight
-            //driver.Navigate().GoToUrl(string.Format("https://{0}", uri));
-            int height = 100000;
-            //try
-            //{
-            //    var ele = wait.Until<IWebElement>((d) => { return d.FindElement(By.CssSelector("#beginner > dt > span")); });
-            //    height = ele.Location.Y;
-            //}
-            //catch (Exception e)
-            //{
-            //}
-            //将页面滚动条拖到底部
-            if (height > 1000)
+            try
             {
-                for (int row = 0; row < height; row += 500)
+                driver.Navigate().GoToUrl(uri);
+                int height = 100000;
+
+                //将页面滚动条拖到底部
+                if (height > 1000)
                 {
-                    ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
-                    Thread.Sleep(20);
+                    for (int row = 0; row < height; row += 500)
+                    {
+                        ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
+                        Thread.Sleep(20);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        int row = (i + 1) * 2000;
+                        ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
+                        Thread.Sleep(100);
+                    }
                 }
             }
-            else
+            catch (Exception e)
             {
-                for (int i = 0; i < 20; i++)
-                {
-                    int row = (i + 1) * 2000;
-                    ((IJavaScriptExecutor)driver).ExecuteScript(string.Format("window.scrollTo(500,{0});", row));
-                    Thread.Sleep(100);
-                }
             }
 
         }

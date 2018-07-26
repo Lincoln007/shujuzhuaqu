@@ -33,24 +33,25 @@
             this.btnsetpath = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.btnDownloadAll = new System.Windows.Forms.Button();
             this.btndownload = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDownloadAll = new System.Windows.Forms.Button();
             this.colurl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chbyibu = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,6 +87,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chbyibu);
             this.panel2.Controls.Add(this.linkLabel2);
             this.panel2.Controls.Add(this.btnDownloadAll);
             this.panel2.Controls.Add(this.btndownload);
@@ -106,6 +108,17 @@
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "c:\\";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // btnDownloadAll
+            // 
+            this.btnDownloadAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDownloadAll.Location = new System.Drawing.Point(506, 31);
+            this.btnDownloadAll.Name = "btnDownloadAll";
+            this.btnDownloadAll.Size = new System.Drawing.Size(69, 23);
+            this.btnDownloadAll.TabIndex = 1;
+            this.btnDownloadAll.Text = "下载所有";
+            this.btnDownloadAll.UseVisualStyleBackColor = true;
+            this.btnDownloadAll.Click += new System.EventHandler(this.btnDownloadAll_Click);
             // 
             // btndownload
             // 
@@ -138,30 +151,13 @@
             this.panel3.Size = new System.Drawing.Size(578, 326);
             this.panel3.TabIndex = 3;
             // 
-            // dataGridView1
+            // splitter1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(254, 326);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(254, 326);
-            this.panel4.TabIndex = 1;
+            this.splitter1.Location = new System.Drawing.Point(254, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 326);
+            this.splitter1.TabIndex = 2;
+            this.splitter1.TabStop = false;
             // 
             // panel5
             // 
@@ -188,13 +184,37 @@
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
             // 
-            // splitter1
+            // colurl
             // 
-            this.splitter1.Location = new System.Drawing.Point(254, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 326);
-            this.splitter1.TabIndex = 2;
-            this.splitter1.TabStop = false;
+            this.colurl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colurl.HeaderText = "已下载的链接";
+            this.colurl.Name = "colurl";
+            this.colurl.ReadOnly = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dataGridView1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(254, 326);
+            this.panel4.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(254, 326);
+            this.dataGridView1.TabIndex = 0;
             // 
             // Column1
             // 
@@ -203,23 +223,15 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
-            // btnDownloadAll
+            // chbyibu
             // 
-            this.btnDownloadAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDownloadAll.Location = new System.Drawing.Point(506, 31);
-            this.btnDownloadAll.Name = "btnDownloadAll";
-            this.btnDownloadAll.Size = new System.Drawing.Size(69, 23);
-            this.btnDownloadAll.TabIndex = 1;
-            this.btnDownloadAll.Text = "下载所有";
-            this.btnDownloadAll.UseVisualStyleBackColor = true;
-            this.btnDownloadAll.Click += new System.EventHandler(this.btnDownloadAll_Click);
-            // 
-            // colurl
-            // 
-            this.colurl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colurl.HeaderText = "已下载的链接";
-            this.colurl.Name = "colurl";
-            this.colurl.ReadOnly = true;
+            this.chbyibu.AutoSize = true;
+            this.chbyibu.Location = new System.Drawing.Point(422, 35);
+            this.chbyibu.Name = "chbyibu";
+            this.chbyibu.Size = new System.Drawing.Size(72, 16);
+            this.chbyibu.TabIndex = 3;
+            this.chbyibu.Text = "异步下载";
+            this.chbyibu.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -236,10 +248,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,6 +274,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button btnDownloadAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn colurl;
+        private System.Windows.Forms.CheckBox chbyibu;
     }
 }
 
