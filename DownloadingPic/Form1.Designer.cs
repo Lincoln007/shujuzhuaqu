@@ -45,6 +45,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chbyibu = new System.Windows.Forms.CheckBox();
+            this.btnOpenBrowser = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -56,6 +57,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnOpenBrowser);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.btnsetpath);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -233,6 +235,16 @@
             this.chbyibu.Text = "异步下载";
             this.chbyibu.UseVisualStyleBackColor = true;
             // 
+            // btnOpenBrowser
+            // 
+            this.btnOpenBrowser.Location = new System.Drawing.Point(497, 5);
+            this.btnOpenBrowser.Name = "btnOpenBrowser";
+            this.btnOpenBrowser.Size = new System.Drawing.Size(78, 23);
+            this.btnOpenBrowser.TabIndex = 3;
+            this.btnOpenBrowser.Text = "打开浏览器";
+            this.btnOpenBrowser.UseVisualStyleBackColor = true;
+            this.btnOpenBrowser.Click += new System.EventHandler(this.btnOpenBrowser_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -275,6 +287,7 @@
         private System.Windows.Forms.Button btnDownloadAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn colurl;
         private System.Windows.Forms.CheckBox chbyibu;
+        private System.Windows.Forms.Button btnOpenBrowser;
     }
 }
 

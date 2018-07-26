@@ -77,7 +77,7 @@ namespace DownloadingPic
 
         private void InitWebDriver()
         {
-            if (service == null)
+            if (service == null|| !service.IsRunning)
             {
                 service = ChromeDriverService.CreateDefaultService();
                 service.HideCommandPromptWindow = true; //隐藏 命令窗口  
@@ -86,9 +86,11 @@ namespace DownloadingPic
 
                 //option.AddArgument("disable-infobars"); //隐藏 自动化标题  
                 //option.AddArgument("headless"); //隐藏 chorme浏览器  
-                option.AddArgument("--incognito");//隐身模式  
+                //option.AddArgument("--incognito");//隐身模式  
                 driver = new OpenQA.Selenium.Chrome.ChromeDriver(service, option, TimeSpan.FromSeconds(40));
+                
                 wait = new WebDriverWait(driver, TimeSpan.FromMinutes(10));
+                
             }
         }
         private void UninitWebDriver()
@@ -732,6 +734,11 @@ namespace DownloadingPic
 
             }
 
+        }
+
+        private void btnOpenBrowser_Click(object sender, EventArgs e)
+        {
+            InitWebDriver();
         }
     }
 }
